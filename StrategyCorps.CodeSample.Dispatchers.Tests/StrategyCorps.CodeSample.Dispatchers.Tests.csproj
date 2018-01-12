@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="MappingProfiles\TheMovieDbMappingProfileTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\TheMovieDb\GetMovieAlternativeTitlesByIdTests.cs" />
     <Compile Include="Providers\TheMovieDb\GetSimilarTelevisionShowsByIdTests.cs" />
     <Compile Include="Providers\TheMovieDb\GetTelevisionShowsByQueryTests.cs" />
   </ItemGroup>

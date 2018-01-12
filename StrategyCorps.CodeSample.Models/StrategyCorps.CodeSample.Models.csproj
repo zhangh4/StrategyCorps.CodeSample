@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovieAlternativeTitlesResponseDto.cs" />
+    <Compile Include="MovieTitleDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TelevisionResultDto.cs" />
     <Compile Include="TelevisionSearchResponseDto.cs" />

@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\MovieAlternativeTitlesByIdTests.cs" />
     <Compile Include="Controllers\TelevisionSearchByQueryTests.cs" />
     <Compile Include="Extensions\ControllerTestExtensions.cs" />
     <Compile Include="MappingProfiles\DefaultMappingProfileTests.cs" />

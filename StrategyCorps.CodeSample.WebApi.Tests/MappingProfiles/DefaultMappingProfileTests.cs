@@ -77,5 +77,27 @@ namespace StrategyCorps.CodeSample.WebApi.Tests.MappingProfiles
 
             actualResult.ToExpectedObject().ShouldEqual(expectedResult);
         }
+
+        [Test]
+        public void DefaultMappingProfile_When_MovieAlternativeTitlesResponseDTO_Returns_MovieAlternativeTitlesResponseViewModel()
+        {
+            var movieTitlesDto = Builder<MovieTitleDto>.CreateListOfSize(5).Build();
+            var movieTitlesResponseDto = Builder<MovieAlternativeTitlesResponseDto>.CreateNew()
+                .With(x => x.Titles = movieTitlesDto).Build();
+
+            var expectedResult = Builder<MovieAlternativeTitlesViewModel>.CreateNew()
+                .With(x => x.MovieId = movieTitlesResponseDto.MovieId)
+                .With(x => x.Titles = movieTitlesResponseDto.Titles.Select(t => new MovieTitleViewModel()
+                        {
+                            CountryCode = t.CountryCode,
+                            Title = t.Title
+                        })
+                        .ToList())
+                .Build();
+
+            var actualResult = _mapper.Map<MovieAlternativeTitlesResponseDto, MovieAlternativeTitlesViewModel>(movieTitlesResponseDto);
+
+            actualResult.ToExpectedObject().ShouldEqual(expectedResult);
+        }
     }
 }

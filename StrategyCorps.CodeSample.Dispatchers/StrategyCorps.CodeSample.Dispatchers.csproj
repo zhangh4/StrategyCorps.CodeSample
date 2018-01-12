@@ -64,6 +64,8 @@
     <Compile Include="MappingProfiles\TheMovieDbMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\TheMovieDB\Model\GenreId.cs" />
+    <Compile Include="Providers\TheMovieDB\Model\MovieAlternativeTitlesResponse.cs" />
+    <Compile Include="Providers\TheMovieDB\Model\MovieTitleResult.cs" />
     <Compile Include="Providers\TheMovieDB\Model\TelevisionResult.cs" />
     <Compile Include="Providers\TheMovieDB\Model\TelevisionSearchResponse.cs" />
     <Compile Include="Registries\DefaultDispatchersRegistry.cs" />

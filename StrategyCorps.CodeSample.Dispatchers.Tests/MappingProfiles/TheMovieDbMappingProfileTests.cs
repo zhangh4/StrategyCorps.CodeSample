@@ -84,5 +84,37 @@ namespace StrategyCorps.CodeSample.Dispatchers.Tests.MappingProfiles
             actualResult.ToExpectedObject().ShouldEqual(expectedResult);
         }
 
+        [Test]
+        public void DefaultMappingProfile_When_MovieTitleResult_Returns_MovieTitleResultDTO()
+        {
+            var movieTitleResult = Builder<MovieTitleResult>.CreateNew().Build();
+            var expectedResult = Builder<MovieTitleDto>.CreateNew()
+                .With(x => x.CountryCode = movieTitleResult.CountryCode)
+                .With(x => x.Title = movieTitleResult.Title)
+                .Build();
+
+            var actualResult = _mapper.Map<MovieTitleResult, MovieTitleDto>(movieTitleResult);
+
+            actualResult.ToExpectedObject().ShouldEqual(expectedResult);
+        }
+
+        [Test]
+        public void DefaultMappingProfile_When_MovieAlternativeTitlesResponse_Returns_MovieAlternativeTitlesResponseDTO()
+        {
+            var movieAlternativeTitlesResponse = 
+                Builder<MovieAlternativeTitlesResponse>.CreateNew()
+                    .With(x => x.Titles = Builder<MovieTitleResult>.CreateListOfSize(5).Build())
+                    .Build();
+
+            var expectedResult = 
+                Builder<MovieAlternativeTitlesResponseDto>.CreateNew()
+                    .With(x => x.MovieId = movieAlternativeTitlesResponse.MovieId)
+                    .With(x => x.Titles = movieAlternativeTitlesResponse.Titles.Select(t => _mapper.Map<MovieTitleResult, MovieTitleDto>(t)).ToList())
+                    .Build();
+
+            var actualResult = _mapper.Map<MovieAlternativeTitlesResponse, MovieAlternativeTitlesResponseDto>(movieAlternativeTitlesResponse);
+
+            actualResult.ToExpectedObject().ShouldEqual(expectedResult);
+        }
     }
 }

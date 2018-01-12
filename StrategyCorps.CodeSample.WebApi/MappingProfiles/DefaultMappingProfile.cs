@@ -17,6 +17,8 @@ namespace StrategyCorps.CodeSample.WebApi.MappingProfiles
             CreateMap<TelevisionResultDto, TelevisionResultViewModel>()
                 .ForMember(destination => destination.FirstAirDate, options => options.MapFrom(source => source.FirstAirDate != null ? source.FirstAirDate.ToString() : string.Empty));
             CreateMap<TelevisionSearchResponseDto, TelevisionSearchResponseViewModel>();
+            CreateMap<MovieTitleDto, MovieTitleViewModel>();
+            CreateMap<MovieAlternativeTitlesResponseDto, MovieAlternativeTitlesViewModel>();
         }
     }
 }

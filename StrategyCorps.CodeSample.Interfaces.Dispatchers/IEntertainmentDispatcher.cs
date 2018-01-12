@@ -7,5 +7,7 @@ namespace StrategyCorps.CodeSample.Interfaces.Dispatchers
         TelevisionSearchResponseDto GetTelevisionShowsByQuery(string query);
 
         TelevisionSearchResponseDto GetSimilarTelevisionShowsById(int id);
+
+        MovieAlternativeTitlesResponseDto GetMovieAlternativeTitlesById(int id);
     }
 }

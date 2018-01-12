@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MovieService\GetMovieAlternativeTitlesByIdTests.cs" />
     <Compile Include="Services\TelevisionService\GetSimilarTelevisionShowsByIdTests.cs" />
     <Compile Include="Services\TelevisionService\GetTelevisionShowsByQueryTests.cs" />
   </ItemGroup>
