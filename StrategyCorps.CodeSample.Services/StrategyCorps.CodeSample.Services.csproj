@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D825FDF-D008-4859-8401-C779BEE93D3C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StrategyCorps.CodeSample.Services</RootNamespace>
+    <AssemblyName>StrategyCorps.CodeSample.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.7\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.4.5\lib\net45\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web.4.0.0.315\lib\net40\StructureMap.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StartUp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TelevisionService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StrategyCorps.CodeSample.Interfaces.Core\StrategyCorps.CodeSample.Interfaces.Core.csproj">
+      <Project>{688C285A-4B3F-4C20-A127-C33F2C677124}</Project>
+      <Name>StrategyCorps.CodeSample.Interfaces.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrategyCorps.CodeSample.Interfaces.Dispatchers\StrategyCorps.CodeSample.Interfaces.Dispatchers.csproj">
+      <Project>{79FEDAEF-E874-4D14-A2BC-52B9D76847A0}</Project>
+      <Name>StrategyCorps.CodeSample.Interfaces.Dispatchers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrategyCorps.CodeSample.Interfaces.Repositories\StrategyCorps.CodeSample.Interfaces.Repositories.csproj">
+      <Project>{546452ab-e217-40ff-846b-d981b053753c}</Project>
+      <Name>StrategyCorps.CodeSample.Interfaces.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrategyCorps.CodeSample.Interfaces.Services\StrategyCorps.CodeSample.Interfaces.Services.csproj">
+      <Project>{6cfd8833-daa5-437d-b2e2-2afdeddd0786}</Project>
+      <Name>StrategyCorps.CodeSample.Interfaces.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrategyCorps.CodeSample.Models\StrategyCorps.CodeSample.Models.csproj">
+      <Project>{ac6ad03e-131e-49a3-bd46-76c7195ff461}</Project>
+      <Name>StrategyCorps.CodeSample.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MappingProfiles\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y "$(ProjectDir)bin\$(ConfigurationName)\StrategyCorps.CodeSample.Services.dll" "$(SolutionDir)StrategyCorps.CodeSample.WebApi\bin\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
